@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from .models import Booking
 from .utils import generate_qr_code
 
@@ -15,3 +15,8 @@ def index(request):
         print("created")
         return render(request, 'index.html', context)
     return render(request, 'index.html')
+
+
+def get_booking_details(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    return render(request, 'booking_details.html', {'booking': booking})

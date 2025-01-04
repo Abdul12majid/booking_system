@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="text-center">Booking Details</h1>
+        <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+                Booking Information
+            </div>
+            <div class="card-body">
+                <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+                <p><strong>Name:</strong> {{ booking.name }}</p>
+                <p><strong>Date Created:</strong> {{ booking.date_created }}</p>
+                {% if booking.qr_code %}
+                    <p><strong>QR Code:</strong></p>
+                    <img src="{{ booking.qr_code.url }}" alt="Booking QR Code" class="img-thumbnail" style="max-width: 200px;">
+                {% endif %}
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="" class="btn btn-secondary">Scan Another QR Code</a>
+        </div>
+    </div>
+
+
+{% endblock %}
