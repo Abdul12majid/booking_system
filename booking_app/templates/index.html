@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+</br></br>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div></br>
+    <button type="submit" class="btn btn-primary">Create Booking</button>
+</form>
+
+
+{% endblock %}
